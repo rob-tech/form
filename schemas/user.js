@@ -23,21 +23,14 @@ const User = new Schema({
         //                 }
     // }
 },
-// username: {
-//     type: String,
-//     required: true
-// },
-// password:{
-//     type:String,
-//     required:true
-// },
-})
-// const options = {
-//     username: "email",
-    // password: "password"
-//   };
 
-User.plugin(passportLocalMongoose)
-// module.exports = mongoose.model('User', User)
+})
+
+const options = {
+    username: "email",
+    password: "password"
+  };
+
+User.plugin(passportLocalMongoose, options)
 module.exports = mongoose.model('User', User);
 
