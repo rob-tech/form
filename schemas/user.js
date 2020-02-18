@@ -23,6 +23,14 @@ const User = new Schema({
         //                 }
     // }
 },
+experiences:  [{
+    _id: {type: Schema.Types.ObjectId, auto: true},
+    role: String,
+    company: String,
+    startDate:  Date,
+    endDate: Date,
+    description: String,
+    }]
 
 })
 

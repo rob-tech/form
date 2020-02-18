@@ -1,15 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Experience = require("../schemas/experience")
+const User = require("../schemas/user")
 const {token} = require("../authenticate/index")
 
 const router = express.Router()
 
-router.get("/",  token, async (req, res) => {
+router.get("/", token, async (req, res) => {
     try {
-   
-        const experience = await Experience.find({})
-        res.send(experience);
+        const experiences = await User.findById({ _id: req.user._id }, { experiences: [{}] })
+        res.send(experiences);
        
     }
     catch (err) {
@@ -23,8 +22,8 @@ router.get("/",  token, async (req, res) => {
 
 router.post("/experience", token, async (req, res) => {
     try {
-        const exp = await Experience.create(req.body)
-        res.send(exp);
+       const experience =  await User.findById({ _id: req.user._id }).updateOne({$push: {experiences: req.body}} )       
+        res.send(experience);
        
     }
     catch (err) {
