@@ -34,11 +34,11 @@ experiences:  [{
 
 })
 
-const options = {
-    username: "email",
-    password: "password"
-  };
+// const options = {
+//     username: "email",
+//     password: "password"
+//   };
 
-User.plugin(passportLocalMongoose, options)
+User.plugin(passportLocalMongoose)
 module.exports = mongoose.model('User', User);
 

@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken')
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: "65198198151654719165121613165161",
-    username: "email",
-    password: "password"
+    // username: "email",
+    // password: "password"
 }
 
 passport.serializeUser(User.serializeUser())
